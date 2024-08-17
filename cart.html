@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Online Shopping</title>
+    <link rel="stylesheet" href="bootstrap.min.css">
+    <link rel="stylesheet" href="style2.css">
+</head>
+<body onload="nextOnload()">
+    <div class="container mt-4">
+        <div class="row">
+            <div class="col-lg-5 col-md-12 col-sm-12 mt-5">
+                <img src="" alt="" id="img1" class="w-100" width="100" height="" />
+            </div>
+            <div class="col-lg-7 col-md-12 col-sm-12">
+                <div class="phase1" style="text-align: center;">       
+                    <h1 id="product_name1" style="text-transform: uppercase; color: #364a15;"></h1>
+                    <p id="product_des" style="text-transform: capitalize; font-weight: 600; color: #718156;"></p>   
+                </div>
+                <div class="price">
+                    <span id="product_sale" style="font-size: 30px;"></span> 
+                    <del id="product_org" style="color: rgb(72, 68, 68); font-size: 20px;"></del> 
+                    <span id="product_dis" style="color: green;"></span>
+                    <span id="product_dis_form" style="color: green;"></span></span>               
+                    <div class="details pl-2">
+                        <h3 class="mt-2 pt-3">PRICE DETAILS</h3>
+                        <hr>
+                        <p>Product's Original Price: ₹<span id="per_cost" class="ori_price" style="color: green; font-size: 20px; font-weight: bold;"></span></p>
+                        <p> Total Quantity:  <span id="total_quantity" style="color: green; font-size: 20px; font-weight: bold;"></span></p>
+                        <p>Discount:<span id="total_dis" style="color: green; font-size: 20px; font-weight: bold;"></span>
+                        <span id="total_dis_form"style="color: green; font-size: 20px; font-weight: bold;"></span></p>                 
+                        <P>Delivery Cost: <span style="color: green; font-size: 20px; font-weight: bold;"><span>FREE</span></span></P>
+                        <hr>
+                        <p class="amount">Total Amount: ₹<span id="total_cost" style="color: black; font-size: 20px; font-weight: bold;"></span></p>
+                        <hr>
+                        <div style="text-align: center;">
+                            <button type="button" class="btn btn-success button"  onclick="addMoreProduct()">Add More Products</button>
+                            <hr>
+                        </div>
+                    </div>
+                        
+                </div>
+                
+            </div>
+        </div>
+    </div>
+</body>
+</html>
+<script>
+img1.src = localStorage.getItem('productImgSrc');
+function nextOnload() {
+   var product_name1= document.getElementById('product_name1');
+   var product_des= document.getElementById('product_des');
+   var product_sale= document.getElementById('product_sale');
+   var product_org= document.getElementById('product_org');
+   var product_dis= document.getElementById('product_dis');
+   var product_dis_form= document.getElementById('product_dis_form');
+
+
+   
+    var productname2 = localStorage.getItem('productName');
+    var productdes2 = localStorage.getItem('productDescription');
+    var productsale2 = localStorage.getItem('price-sales');
+    var productorg2 = localStorage.getItem('originalPrice');
+    var productdis2 = localStorage.getItem('userDiscount');
+    var productdisform2 = localStorage.getItem('discountFormat');
+
+    var per_cost =document.getElementById('per_cost');
+    var total_quantity =document.getElementById('total_quantity');
+    var total_dis =document.getElementById('total_dis');
+    var total_dis_form =document.getElementById('total_dis_form');
+    var total_cost =document.getElementById('total_cost');
+  
+    var total_quantity1 =localStorage.getItem('pressedquantity');
+
+   product_name1.innerHTML = productname2;
+   product_des.innerHTML = productdes2;
+   product_sale.innerHTML = Math.round(productsale2);
+   product_org.innerHTML = productorg2;
+   product_dis.innerHTML = productdis2;
+   product_dis_form.innerHTML = productdisform2+" OFF";
+
+   per_cost.innerHTML =Math.round(productsale2);
+   total_quantity.innerHTML=total_quantity1;
+   total_dis.innerHTML=productdis2;
+   total_dis_form.innerHTML= productdisform2+" OFF";
+
+   var total_cost1 = Math.round(productsale2)*total_quantity1;
+   total_cost.innerHTML=total_cost1;
+
+
+
+
+
+}
+function addMoreProduct() {
+    window.location.href="index.html";
+}
+</script>

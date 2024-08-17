@@ -1,0 +1,24 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    
+}
+body {
+    font-size: 20px;
+    background: #b5c69f;
+}
+.heading h1 {
+    text-align: center;
+    font-weight: 500;
+    color: #364a15;
+}
+.row h2 {
+    color: #718156;
+    font-size: 22px;
+}
+.row .button {
+    color: #364a15;
+    background: #d6f89f;
+    box-shadow: 2px 2px 7px 7px #718355;
+}
